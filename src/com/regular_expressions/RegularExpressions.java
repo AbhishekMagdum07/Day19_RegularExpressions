@@ -32,7 +32,7 @@ public class RegularExpressions {
   //E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) wit precise @ and . positions
   public static void validEmail(){
 
-      Pattern pattern = Pattern.compile("^[a-z\\d]{1,}[@][a-z\\d]{1,}[.]com$");
+      Pattern pattern = Pattern.compile("^[a-z\\d]{1,}[@][a-z]{1,}[.]com$");
 
       Matcher matcher = pattern.matcher("abhishekmagdum07@gmail.com");
         if (matcher.find() == true) {
@@ -52,12 +52,23 @@ public class RegularExpressions {
           System.out.println("Phone Number is Invalid");
       }
   }
+  // Uc5 = As a User need to follow pre defined Password rules.Rule1 minimum 8 Characters.
+  public static void password(){
+      Pattern pattern = Pattern.compile("^\\w{8,}$");
 
+      Matcher matcher = pattern.matcher("sdflkjdshkewr23423lk4");
+      if (matcher.find() == true) {
+          System.out.println("Password is Valid");
+      }else{
+          System.out.println("Password is Invalid");
+      }
+  }
   public static void main(String[] args) {
       firstName();
       lastName();
       validEmail();
       phoneNumber();
+      password();
   }
 }
 
