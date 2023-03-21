@@ -85,6 +85,17 @@ public class RegularExpressions {
          System.out.println("Password is Invalid");
      }
  }
+ // Uc8 = Has exactly 1 Special Character
+ public static void passwordRule4(){
+     Pattern pattern = Pattern.compile("(?=.*[A-Z])(?=.*[\\d])(?=.*[!@#$%^&*])[\\w!@#$%^&*]{8,}");
+
+     Matcher matcher = pattern.matcher("Abcd@12345");
+     if (matcher.find() == true) {
+         System.out.println("Password is Valid");
+     }else{
+         System.out.println("Password is Invalid");
+     }
+ }
   public static void main(String[] args) {
       firstName();
       lastName();
@@ -93,6 +104,7 @@ public class RegularExpressions {
       password();
       passwordRule2();
       passwordRule3();
+      passwordRule4();
   }
 }
 
